@@ -1,0 +1,16 @@
+{
+  "name": "lunchify-scraper",
+  "version": "0.0.1",
+  "description": "Scrapes websites for information ",
+  "main": "source/index.js",
+  "scripts": {
+    "test": "grunt test"
+  },
+  "author": "Sallar Kaboli",
+  "license": "MIT",
+  "devDependencies": {},
+  "dependencies": {
+    "bunyan": "^1.5.1",
+    "x-ray": "^2.0.3"
+  }
+}
