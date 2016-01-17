@@ -2,14 +2,15 @@
  * @author Sallar Kaboli <sallar.kaboli@gmail.com>
  * @date 13.01.2016
  */
-(function(module) {
-    "use strict";
+"use strict";
 
-    module.exports = {
-        findAll: function() {
-            return new Promise(function(resolve, reject) {
-                resolve();
-            });
-        }
-    };
-})(module);
+import {apiUrl} from "../config";
+import fetch from "node-fetch";
+
+module.exports = {
+    findAll: function() {
+        return fetch(apiUrl + "/venues").then(function(res) {
+            return res.json();
+        });
+    }
+};
