@@ -4,12 +4,12 @@ webpack = require('webpack')
 function makeConfig() {
   return {
     entry: {
-      lunchify: ['./source/index']
+      index: ['./source/index.js']
     },
     target: 'node',
     output: {
       path: './lib',
-      filename: '[name].js',
+      filename: '[name].dist.js',
       publicPath: '/lib/',
       libraryTarget: 'commonjs2'
     },
@@ -19,13 +19,14 @@ function makeConfig() {
     ],
 
     resolve: {
-      extensions: ['.js', '.json']
+      extensions: ['', '.js', '.json']
     },
 
     devtool: 'source-map',
     module: {
       loaders: [
           {test: /\.json$/, loader: 'json'},
+          {test: /\.js$/, loader: 'strict', exclude: /(node_modules)/},
           {
             test: /\.js$/,
             loader: 'babel',

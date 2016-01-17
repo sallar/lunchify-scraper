@@ -4,7 +4,9 @@
   "description": "Scrapes websites for information",
   "main": "source/index.js",
   "scripts": {
-    "test": "grunt test"
+    "test": "grunt test",
+    "dev": "webpack --watch --colors --progress",
+    "prepublish": "webpack --colors --progress"
   },
   "author": "Sallar Kaboli",
   "license": "MIT",
@@ -14,6 +16,7 @@
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-stage-1": "^6.3.13",
     "node-fetch": "^1.3.3",
+    "strict-loader": "^1.0.0",
     "webpack": "^1.12.11",
     "webpack-error-notification": "^0.1.6"
   },
