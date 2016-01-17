@@ -26,7 +26,6 @@ function makeConfig() {
     module: {
       loaders: [
           {test: /\.json$/, loader: 'json'},
-          {test: /\.js$/, loader: 'strict', exclude: /(node_modules)/},
           {
             test: /\.js$/,
             loader: 'babel',
