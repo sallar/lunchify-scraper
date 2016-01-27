@@ -3,5 +3,5 @@
  * @date 17.01.2016
  */
 export default {
-    apiUrl: "https://lunchify.fi/api"
+    apiUrl: "http://lunchify/api"
 };

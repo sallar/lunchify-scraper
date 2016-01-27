@@ -4,11 +4,12 @@
  */
 import config from "../config";
 import fetch from "node-fetch";
-
-console.log(config.apiUrl);
+import Venue from "../models/venue";
 
 export function findVenues() {
-    return fetch(config.apiUrl + "/venues").then(function(res) {
-        return res.json();
-    });
+    return fetch(`${config.apiUrl}/venues`)
+        .then(res => res.json())
+        .then(venues => {
+            return venues.map(venueData => new Venue(venueData));
+        });
 };
