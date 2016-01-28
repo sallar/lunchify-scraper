@@ -8,6 +8,14 @@ export default class Venue {
             jsonData.provider,
             jsonData.provider_id
         );
+        this.menu = [];
+    }
+
+    downloadMenu() {
+        return this.scraper.getMenu().then(results => {
+            this.menu = results;
+            return this;
+        });
     }
 
 }

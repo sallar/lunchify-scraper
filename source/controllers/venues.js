@@ -4,6 +4,7 @@
  */
 import config from "../config";
 import fetch from "node-fetch";
+import promiseArrays from "promise-arrays";
 import Venue from "../models/venue";
 
 export function findVenues() {
@@ -13,3 +14,13 @@ export function findVenues() {
             return venues.map(venueData => new Venue(venueData));
         });
 };
+
+export function downloadMenus(venuesArr) {
+    return promiseArrays.map(venuesArr, (venue) => {
+        return venue.downloadMenu();
+    });
+}
+
+export function saveMenus(venuesObjs) {
+    return venuesObjs;
+}
