@@ -3,11 +3,19 @@
  * @date 13.01.2016
  */
 import logger from "./helpers/logger";
-import {findVenues, downloadMenus, saveMenus} from "./controllers/venues";
+import {
+    findVenues,
+    downloadMenus,
+    saveMenus
+} from "./controllers/venues";
 
-findVenues()
-    .then(downloadMenus)
-    .then(saveMenus)
-    .then(function(r) {
-        logger.info(r);
-    });
+try {
+    findVenues()
+        .then(downloadMenus)
+        .then(saveMenus)
+        .then(function(r) {
+            logger.info(r);
+        });
+} catch (err) {
+    logger.error(err);
+}

@@ -31,7 +31,8 @@ function makeConfig() {
             loader: 'babel',
             exclude: /(node_modules)/,
             query: {
-              presets: ['es2015', 'stage-1']
+              presets: ['stage-1'],
+              plugins: ['transform-es2015-modules-commonjs']
             }
           }
 
