@@ -7,10 +7,11 @@ import promiseArrays from "promise-arrays";
 
 class AmicaScraper extends Scraper {
 
+    url = "http://www.amica.fi/modules/json/json/Index?costNumber=[ID]&language=en&firstDay=[DATE]";
+    moment = moment();
+
     constructor(id) {
         super(id);
-        this.moment = moment();
-        this.url = "http://www.amica.fi/modules/json/json/Index?costNumber=[ID]&language=en&firstDay=[DATE]";
     }
 
     getMenu() {
