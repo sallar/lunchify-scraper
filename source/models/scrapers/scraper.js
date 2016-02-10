@@ -1,9 +1,13 @@
 export default class Scraper {
 
-    construct(id) {
+    constructor(id) {
         this.id = id;
     }
 
+    /**
+     * Get menu for this scraper
+     * @return {Array.<Object>} Array of menu objects. Each has date as key (YYYY-MM-DD) and menu items as values
+     */
     getMenu() {
         return new Promise(resolve => {
             resolve([{

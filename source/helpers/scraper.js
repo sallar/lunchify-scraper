@@ -20,3 +20,11 @@ export function createScraper(providerName, providerId) {
 
     return new scraper(providerId);
 }
+
+export function urlFormat(str, replace) {
+    Object.keys(replace).forEach(key => {
+        str = str.replace(`[${key.toUpperCase()}]`, replace[key]);
+    });
+
+    return str;
+}
