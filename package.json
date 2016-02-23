@@ -2,11 +2,10 @@
   "name": "lunchify-scraper",
   "version": "0.0.1",
   "description": "Scrapes websites for information",
-  "main": "source/index.js",
+  "main": "lib/index.dist.js",
   "scripts": {
-    "test": "grunt test",
     "dev": "webpack --watch --colors --progress",
-    "prepublish": "webpack --colors --progress"
+    "scraper": "node ./lib/index.dist.js | bunyan"
   },
   "author": "Sallar Kaboli",
   "license": "MIT",
