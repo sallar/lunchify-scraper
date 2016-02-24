@@ -9,11 +9,11 @@ import {
     saveMenus
 } from "./controllers/venues";
 
-    findVenues()
-        .then(downloadMenus)
-        .then(saveMenus)
-        .then(r => {
-            logger.info(JSON.stringify(r, undefined, 4));
-        }).catch(error => {
-            logger.error(error);
-        });
+findVenues()
+    .then(downloadMenus)
+    .then(saveMenus)
+    .then(r => {
+        logger.info(JSON.stringify(r, undefined, 4));
+    }).catch(error => {
+        logger.error(error);
+    });
