@@ -28,7 +28,7 @@ const foodsFlags = [
 export default foodsFlags;
 
 /**
- * Extract a flag from food title
+ * Extract the flags from food title
  * @param title
  */
 export function extractFlags(title) {
