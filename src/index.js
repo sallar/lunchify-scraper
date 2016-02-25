@@ -1,16 +1,13 @@
 import getVenues from 'scrappers/venues';
+import util from 'util';
 
 async function scrap() {
-  try {
-    const venues = await getVenues();
+  const venues = await getVenues();
 
-    const menusPromises = venues.map(venue => venue.scrapMenu());
-    Promise.all(menusPromises).then(menus => {
-      console.log(menus);
-    })
-  } catch (err) {
-    console.error(err);
-  }
+  const menusPromises = venues.map(venue => venue.scrapMenu());
+  Promise.all(menusPromises).then(menus => {
+    console.log(util.inspect(menus, {showHidden: false, depth: null}));
+  });
 }
 
 scrap();
