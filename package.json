@@ -1,28 +1,35 @@
 {
   "name": "lunchify-scraper",
   "version": "0.0.1",
-  "description": "Scrapes websites for information",
-  "main": "lib/index.dist.js",
+  "description": "",
+  "main": "src/index.js",
   "scripts": {
-    "dev": "webpack --watch --colors --progress",
-    "scraper": "node ./lib/index.dist.js | bunyan"
+    "start": "NODE_PATH=./src node ./bin/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sallar/lunchify-scraper.git"
   },
   "author": "Sallar Kaboli",
+  "contributors": [
+    {
+      "name": "Mohamad Mohebifar",
+      "email": "mohamad@mohebifar.com"
+    }
+  ],
   "license": "MIT",
-  "devDependencies": {
-    "babel-core": "^6.4.0",
-    "babel-loader": "^6.2.1",
-    "babel-preset-es2015": "^6.3.13",
-    "babel-preset-stage-1": "^6.3.13",
-    "node-fetch": "^1.3.3",
-    "strict-loader": "^1.0.0",
-    "webpack": "^1.12.11",
-    "webpack-error-notification": "^0.1.6"
+  "bugs": {
+    "url": "https://github.com/sallar/lunchify-scraper/issues"
   },
+  "homepage": "https://github.com/sallar/lunchify-scraper#readme",
   "dependencies": {
-    "bunyan": "^1.5.1",
+    "babel-plugin-transform-regenerator": "^6.5.2",
+    "babel-polyfill": "^6.5.0",
+    "babel-preset-es2015": "^6.5.0",
+    "babel-preset-stage-0": "^6.5.0",
+    "babel-register": "^6.5.2",
     "moment": "^2.11.2",
-    "promise-arrays": "^0.1.0",
+    "node-fetch": "^1.3.3",
     "x-ray": "^2.0.3"
   }
 }
