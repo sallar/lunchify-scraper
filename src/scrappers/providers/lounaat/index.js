@@ -1,7 +1,21 @@
 import Xray from 'x-ray';
 import moment from 'moment';
+import franc from 'franc';
 import { dateFormat } from 'config';
 import { extractFlags, removeFlags } from './flags';
+
+function normalizeForLang(title, lang) {
+  if (!lang) {
+    lang = franc(title, {
+      whitelist: ['eng', 'fin']
+    });
+  }
+  return {
+    flags: extractFlags(title),
+    title: removeFlags(title),
+    lang: lang
+  }
+}
 
 export default {
   /**
@@ -26,7 +40,8 @@ export default {
     return new Promise((resolve, reject) => {
       xray(venue.url, '#menu > div:not(.adsq)', [{
         date: 'h3',
-        menu: xray('.menu-item', ['.dish'])
+        menu: xray('.menu-item', ['.dish']),
+        info: xray('.menu-item', ['.info'])
       }])(function (err, data) {
         if (err) {
           reject(err);
@@ -43,14 +58,22 @@ export default {
    * @returns {Array}
    */
   normalizeData(items) {
-    return items
-      .map(
-        item => ({
-          date: item.date = moment(item.date, 'DD.MM').format(dateFormat),
-          menu: item.menu
-            .map(title => ({flags: extractFlags(title), title: removeFlags(title)}))
-            .filter(({title}) => !/:$|^\s*\*\s?$/.test(title))
-        })
-      );
+    return items.map(item => {
+      let menu = [];
+
+      if (item.info.length > 2) {
+        menu = [
+          item.info.map(title => normalizeForLang(title, 'eng')),
+          item.menu.map(title => normalizeForLang(title, 'fin'))
+        ];
+      } else {
+        menu = item.menu.map(title => normalizeForLang(title));
+      }
+
+      return {
+        date: item.date = moment(item.date, 'DD.MM').format(dateFormat),
+        menu: menu.filter(({title}) => !/:$|^\s*\*\s?$/.test(title))
+      };
+    });
   }
 };

@@ -68,6 +68,10 @@ export default class ApiClient {
         {
           url: 'http://www.lounaat.info/lounas/think/espoo',
           provider: 'lounaat'
+        },
+        {
+          url: 'http://www.lounaat.info/lounas/be-keilaranta/espoo',
+          provider: 'lounaat'
         }
       ])
     );

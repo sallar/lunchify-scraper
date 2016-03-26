@@ -22,6 +22,14 @@ const foodsFlags = [
   {
     flag: 'm',
     regex: /\bm\b/ig
+  },
+  {
+    flag: 'a',
+    regex: /\ba\b/ig
+  },
+  {
+    flag: 'veg',
+    regex: /\bveg\b/ig
   }
 ];
 
@@ -43,6 +51,9 @@ export function extractFlags(title) {
 export function removeFlags(title) {
   return foodsFlags
     .reduce((string, {regex}) => string.replace(regex, ''), title)
+    .trim()
     .replace(/\s+/g, ' ')
-    .trim();
+    .replace(/(\s,)+/g, ',')
+    .replace(/\s\*/g, '')
+    .replace(/,$/g, '');
 }
