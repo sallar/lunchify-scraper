@@ -1,7 +1,6 @@
 import { getVenues, saveMenus } from 'scrappers/venues';
-import util from 'util';
 
-async function scrap() {
+async function boot() {
   const venues = await getVenues();
   const menusPromises = venues.map(venue => venue.scrapMenu());
 
@@ -18,4 +17,4 @@ async function scrap() {
   });
 }
 
-scrap();
+boot();
