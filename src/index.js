@@ -8,9 +8,8 @@ async function boot() {
     let result = menus.map((menu, i) => ({
       venue: venues[i].get("id"),
       menus: menu
-    }));
-    console.log(JSON.stringify(result));
-    //return saveMenus(result);
+    }));;
+    return saveMenus(result);
   }).then(result => {
     console.log(`Saved ${result.length} venues to API`);
   }).catch(err => {
