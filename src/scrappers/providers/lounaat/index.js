@@ -63,8 +63,8 @@ export default {
 
       if (item.info.length > 2) {
         menu = [
-          item.info.map(title => normalizeForLang(title, 'eng')),
-          item.menu.map(title => normalizeForLang(title, 'fin'))
+          ...item.info.map(title => normalizeForLang(title, 'eng')),
+          ...item.menu.map(title => normalizeForLang(title, 'fin'))
         ];
       } else {
         menu = item.menu.map(title => normalizeForLang(title));

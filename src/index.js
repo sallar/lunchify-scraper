@@ -9,7 +9,8 @@ async function boot() {
       venue: venues[i].get("id"),
       menus: menu
     }));
-    return saveMenus(result);
+    console.log(JSON.stringify(result));
+    //return saveMenus(result);
   }).then(result => {
     console.log(`Saved ${result.length} venues to API`);
   }).catch(err => {
