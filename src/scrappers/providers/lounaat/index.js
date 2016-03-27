@@ -38,7 +38,7 @@ export default {
     const xray = Xray();
 
     return new Promise((resolve, reject) => {
-      xray(venue.url, '#menu > div:not(.adsq)', [{
+      xray(`http://www.lounaat.info/lounas/${venue.provider_id}/${venue.city}`, '#menu > div:not(.adsq)', [{
         date: 'h3',
         menu: xray('.menu-item', ['.dish']),
         info: xray('.menu-item', ['.info'])

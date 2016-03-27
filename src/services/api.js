@@ -40,7 +40,7 @@ export default class ApiClient {
     return `${ apiRoot }/${ path }`;
   }
 
-  fetch(method, { data, ...fetchOptions } = {}) {
+  fetch(method, url, { data, ...fetchOptions } = {}) {
     if (data) {
       fetchOptions.body = JSON.stringify(data);
       fetchOptions.headers = fetchOptions.headers || {};
@@ -61,20 +61,10 @@ export default class ApiClient {
   }
 
   /**
-   * @todo Fetch list of venues
+   * Fetch list of venues
    */
   getVenues() {
-    return new Promise(resolve => resolve([
-        {
-          url: 'http://www.lounaat.info/lounas/think/espoo',
-          provider: 'lounaat'
-        },
-        {
-          url: 'http://www.lounaat.info/lounas/be-keilaranta/espoo',
-          provider: 'lounaat'
-        }
-      ])
-    );
+    return this.get('venues');
   }
 }
 
