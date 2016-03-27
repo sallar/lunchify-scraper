@@ -5,6 +5,13 @@ export default class Venue {
     this.data = data;
   }
 
+  get(prop) {
+    if (prop === "id") {
+      prop = "_id";
+    }
+    return this.data[prop];
+  }
+
   getProvider() {
     if (!providers[this.data.provider]) {
       throw `Provider ${ this.data.provider } not found.`;

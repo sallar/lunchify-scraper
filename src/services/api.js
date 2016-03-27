@@ -57,7 +57,9 @@ export default class ApiClient {
    * @param data
    */
   submitMenu(data) {
-
+    return this.post(`venues/${data.venue}/menu`, {
+      data: data.menus
+    });
   }
 
   /**

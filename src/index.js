@@ -1,4 +1,4 @@
-import getVenues from 'scrappers/venues';
+import { getVenues, saveMenus } from 'scrappers/venues';
 import util from 'util';
 
 async function scrap() {
@@ -6,7 +6,13 @@ async function scrap() {
   const menusPromises = venues.map(venue => venue.scrapMenu());
 
   Promise.all(menusPromises).then(menus => {
-    console.log(menus);
+    let result = menus.map((menu, i) => ({
+      venue: venues[i].get("id"),
+      menus: menu
+    }));
+    return saveMenus(result);
+  }).then(result => {
+    console.log(`Saved ${result.length} venues to API`);
   }).catch(err => {
     console.log(err);
   });
