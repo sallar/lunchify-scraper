@@ -56,11 +56,15 @@ export default {
       items.courses.forEach(item => {
         ['eng', 'fin'].forEach(lang => {
           let title = item[`title_${lang.substr(0, 2)}`];
+          let flags = [];
+          if (item.hasOwnProperty('properties')) {
+            flags = item.properties.split(/,\s/).map(prop => prop.toLowerCase());
+          }
           if (typeof title === "string" && title.length > 0) {
             output.push({
-              flags: item.properties.split(/,\s/).map(prop => prop.toLowerCase()),
-              title: title,
-              lang: lang
+              title,
+              flags,
+              lang
             });
           }
         });
