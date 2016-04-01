@@ -13,7 +13,7 @@ async function boot() {
   }).then(result => {
     console.log(`Saved ${result.length} venues to API`);
   }).catch(err => {
-    console.log(err);
+    console.log(err.stack);
   });
 }
 

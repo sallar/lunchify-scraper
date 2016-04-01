@@ -5,8 +5,9 @@ const flagRegex = /\s\(([A-Z\s,\*]+)\)/ig;
  * @param title
  */
 export function extractFlags(title) {
-  let [, flags] = flagRegex.exec(title);
-  if (flags) {
+  let result = flagRegex.exec(title)
+  if (result) {
+    let [, flags] = result;
     return flags
       .replace(/\s+/g, '').split(',')
       .map(flag => flag.toLowerCase())
