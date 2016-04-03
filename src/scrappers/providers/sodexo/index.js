@@ -22,7 +22,7 @@ export default {
   fetch(venue) {
     // Get date objects for rest of the week
     let dates = [];
-    for (let i = moment().day(); i <= 5; i += 1) {
+    for (let i = 1; i <= 5; i += 1) {
       dates.push(moment().day(i));
     }
 
