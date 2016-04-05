@@ -29,8 +29,10 @@
     "babel-preset-stage-0": "^6.5.0",
     "babel-register": "^6.5.2",
     "franc": "^1.1.3",
+    "fs-extra": "^0.26.7",
     "moment": "^2.11.2",
     "node-fetch": "^1.3.3",
+    "pdf2json": "^1.1.5",
     "x-ray": "^2.0.3"
   }
 }
