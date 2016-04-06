@@ -66,14 +66,7 @@ export default class ApiClient {
    * Fetch list of venues
    */
   getVenues() {
-    //return this.get('venues');
-    return Promise.resolve([
-      {
-        "id": "think",
-        "provider": "keilaniemi",
-        "provider_id": "think"
-      }
-    ]);
+    return this.get('venues');
   }
 }
 

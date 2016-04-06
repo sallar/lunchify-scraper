@@ -17,7 +17,6 @@ export function getURL(venue) {
       }
     });
   });
-  //return Promise.resolve('http://www.keilaniemi.fi/wp-content/uploads/2014/05/1951-vko-14.pdf');
 }
 
 export function downloadPDF(urlToPdf) {
@@ -28,14 +27,15 @@ export function downloadPDF(urlToPdf) {
     try {
       // If the file is already there, don’t do anything.
       fs.accessSync(pathToStream, fs.F_OK);
-      //reject('Already scraped.');
       resolve(pathToStream);
     } catch (e) {
       // Otherwise create it
       let fileStream = fs.createOutputStream(pathToStream);
       http.get(urlToPdf, response => {
-        response.pipe(fileStream);
-        resolve(pathToStream);
+        let pipe = response.pipe(fileStream);
+        pipe.on('finish', () => {
+          resolve(pathToStream);
+        });
       });
     }
   });
@@ -58,8 +58,7 @@ export function extraText(pathToPdf) {
           }))
           .filter(line => line.text.match(/[a-zA-Z]+/));
 
-        console.log(texts);
-        resolve();
+        resolve(texts);
       } catch (e) {
         reject(e);
       }
