@@ -47,7 +47,7 @@ export default {
    */
   normalizeData(items) {
     let menus = {};
-    let dateRegex = /(\d\.\d\.)/;
+    let dateRegex = /(\d{1,2}\.\d{1,2}\.)/;
     let lastDate = null;
 
     items.forEach(line => {
