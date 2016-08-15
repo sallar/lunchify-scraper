@@ -1,2 +1,2 @@
-export const apiRoot = 'http://lunchify:8080/api';
+export const apiRoot = 'https://lunchify.fi/api';
 export const dateFormat = 'YYYY-MM-DD';
