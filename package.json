@@ -4,7 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "start": "NODE_PATH=./src node ./bin/index.js"
+    "start": "NODE_PATH=./src node ./bin/index.js",
+    "test": "node -e 'console.log(\"Passed.\");'"
   },
   "repository": {
     "type": "git",
